@@ -4,9 +4,10 @@ import reportWebVitals from './reportWebVitals';
 import ApolloProvider from './ApolloProvider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider />
-  </React.StrictMode>,
+  //TODO: disabled StrictMode because of Semantic UI error with button forwardRef
+  // <React.StrictMode>
+  <ApolloProvider />,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
