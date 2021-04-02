@@ -12,13 +12,17 @@ export interface ILoginValues {
   password: string;
 }
 
+export interface INewPostValues {
+  body: string;
+}
+
 // interface IOutput<T> {
 //   onChange: Function;
 //   onSubmit: Function;
 //   values: T;
 // }
 
-type IValues = IRegisterValues | ILoginValues;
+type IValues = IRegisterValues | ILoginValues | INewPostValues;
 
 export const useForm = <T extends IValues>(
   callback: Function,
