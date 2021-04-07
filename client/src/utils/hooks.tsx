@@ -16,11 +16,11 @@ export interface INewPostValues {
   body: string;
 }
 
-// interface IOutput<T> {
-//   onChange: Function;
-//   onSubmit: Function;
-//   values: T;
-// }
+interface IOutput<T> {
+  onChange: Function;
+  onSubmit: Function;
+  values: T;
+}
 
 type IValues = IRegisterValues | ILoginValues | INewPostValues;
 
@@ -28,8 +28,8 @@ export const useForm = <T extends IValues>(
   callback: Function,
   initialState: T
   //FIXME: this should returned values as registre or login based on input
-): any => {
-  const [values, setValues] = useState<IValues>(initialState);
+): IOutput<T> => {
+  const [values, setValues] = useState<T>(initialState);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e?.target?.name]: e?.target?.value });

@@ -55,7 +55,7 @@ const AuthProvider = (props: any) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('jwToken');
+    localStorage.removeItem('jwtToken');
     dispatch({ type: 'LOGOUT' });
   };
 

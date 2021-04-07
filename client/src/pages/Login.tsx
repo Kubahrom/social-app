@@ -6,11 +6,17 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 import { useForm, ILoginValues } from '../utils/hooks';
 
+interface IOutputs {
+  onChange: any;
+  onSubmit: any;
+  values: ILoginValues;
+}
+
 const Login: React.FC = () => {
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState<Partial<ILoginValues>>({});
 
-  const { onChange, onSubmit, values } = useForm(() => loginUser(), {
+  const { onChange, onSubmit, values }: IOutputs = useForm(() => loginUser(), {
     username: '',
     password: '',
   });
